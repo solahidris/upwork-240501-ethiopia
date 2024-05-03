@@ -11,6 +11,9 @@ import {
 const HomePage = () => {
   console.log("homepage");
 
+  const years = [2016,2017,2018,2019,2020,2021,2022,2023,2024];
+  const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+
   return (
     <div className="flex p-10">
       {/* Left Side */}
@@ -26,14 +29,14 @@ const HomePage = () => {
           orientation="vertical"
           className="w-full max-w-xs"
         >
-          <CarouselContent className="-mt-1 h-[200px]">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index} className="pt-1 md:basis-1/2">
+          <CarouselContent className="-mt-1 h-[400px]">
+            {Array.from({ length: years.length }).map((_, index) => (
+              <CarouselItem key={index} className="pt-1 basis-1/4">
                 <div className="p-1">
                   <Card>
                     <CardContent className="flex items-center justify-center p-6">
-                      <span className="text-3xl font-semibold">
-                        {index + 1}
+                      <span className="text-xl font-semibold">
+                        {years[index]}
                       </span>
                     </CardContent>
                   </Card>
@@ -45,21 +48,21 @@ const HomePage = () => {
           <CarouselNext />
         </Carousel>
       </div>
-      {/* Left Side */}
+      {/* Right Side */}
       <div className="flex flex-col gap-8 w-[90vw]">
-        <div className="flex justify-center">
-          <Carousel className="w-full max-w-sm">
+        <div className="flex justify-center w-[1000px] mx-auto">
+          <Carousel className="max-w-[800px]">
             <CarouselContent className="-ml-1">
-              {Array.from({ length: 5 }).map((_, index) => (
+              {Array.from({ length: alphabet.length }).map((_, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-1 md:basis-1/2 lg:basis-1/3"
+                  className="pl-1 md:basis-1/2 lg:basis-1/5"
                 >
                   <div className="p-1">
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
+                    <Card className="border-0 shadow-none">
+                      <CardContent className="flex items-center justify-center px-8 py-3 rounded-full border border-gray-300">
                         <span className="text-2xl font-semibold">
-                          {index + 1}
+                          {alphabet[index]}
                         </span>
                       </CardContent>
                     </Card>
@@ -87,13 +90,13 @@ const HomePage = () => {
         <div className="flex justify-center">
           <Carousel className="w-full max-w-md">
             <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
+              {Array.from({ length: alphabet.length }).map((_, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
                     <Card>
                       <CardContent className="flex aspect-square items-center justify-center p-6">
                         <span className="text-4xl font-semibold">
-                          {index + 1}
+                          {alphabet[index]}
                         </span>
                       </CardContent>
                     </Card>
@@ -106,21 +109,23 @@ const HomePage = () => {
           </Carousel>
         </div>
 
-        <div className="flex justify-center">
-          <Carousel className="w-full max-w-sm">
+        
+        <div className="flex justify-center w-[1000px] mx-auto">
+          <Carousel className="max-w-[800px]">
             <CarouselContent className="-ml-1">
-              {Array.from({ length: 5 }).map((_, index) => (
+              {Array.from({ length: 10 }).map((_, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-1 md:basis-1/2 lg:basis-1/3"
+                  className="pl-1 md:basis-1/2 lg:basis-1/5"
                 >
                   <div className="p-1">
-                    <Card>
-                      <CardContent className="flex aspect-square items-center justify-center p-6">
-                        <span className="text-2xl font-semibold">
+                    <Card className="border-0 shadow-none">
+                      <CardContent className="flex items-center justify-center px-8 py-6 rounded-3xl border border-gray-300">
+                        <span className="text-2xl font-semibold text-transparent">
                           {index + 1}
                         </span>
                       </CardContent>
+                      <span className="text-center pl-14">name</span>
                     </Card>
                   </div>
                 </CarouselItem>
@@ -130,6 +135,7 @@ const HomePage = () => {
             <CarouselNext />
           </Carousel>
         </div>
+
       </div>
     </div>
   );
